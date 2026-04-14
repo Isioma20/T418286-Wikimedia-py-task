@@ -13,5 +13,5 @@ python3 task-2.py
 Place Task 2 - Intern.csv in the same folder as the script.
 
 Notes  
-Uses csv.reader to parse the CSV and requests.get with a 5-second timeout for each URL.  
+Uses csv.reader to parse the CSV and requests.head with a 5-second timeout for each URL.  
 Handles specific errors: Timeout, ConnectionError, and a general RequestException fallback.
