@@ -5,9 +5,9 @@ import requests
 CSV_FILENAME = "Task 2 - Intern.csv"
 
 def fetch_url_status(url):
-    """Makes a GET request and returns the status code of the URL plus a specific error string."""
+    """Makes a HEAD request and returns the status code of the URL plus a specific error string."""
     try:
-        response = requests.get(url, timeout=5)
+        response = requests.head(url, timeout=5, allow_redirects=True)
         return response.status_code
     except requests.exceptions.Timeout:
         return "Timeout"
@@ -20,6 +20,7 @@ def fetch_url_status(url):
 if __name__ == "__main__":
     with open(CSV_FILENAME, newline="", encoding="utf-8") as file:
         reader = csv.reader(file)
+        next(reader) 
 
         for row in reader:
             url = row[0].strip()
